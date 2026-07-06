@@ -25,6 +25,8 @@ public class Main {
             System.out.println("Pressione 7 para listar os álbuns");
             System.out.println("Pressione 8 para listar as músicas");
             System.out.println("Pressione 9 para listar as playlists");
+            System.out.println("Presssione 10 para buscar musicas por nome");
+            System.out.println("Pressione 11 para editar o álbum de uma música");
             System.out.println("Pressione -1 para sair");
             int opcao = scanner.nextInt();
             scanner.nextLine(); // não deixar dar erro por causa do nextInt anterior
@@ -68,6 +70,14 @@ public class Main {
                 case 9: {
                     System.out.println("Listando playlists...");
                     listarPlaylistsPretty();
+                    break;
+                }
+                case 10: {
+                    buscarMusicasPorNome();
+                    break;
+                }
+                case 11: {
+                    adicionarAlbumAMusica();
                     break;
                 }
                 case -1: {
@@ -131,7 +141,15 @@ public class Main {
         scanner.nextLine();
         System.out.println("Selecione o álbum que contém a música entre esses, pelo id: ");
         listarAlbuns();
+        System.out.println("Se for um single, digite -1");
         int selecao = scanner.nextInt();
+        scanner.nextLine();
+        if(selecao == -1){
+            Musica novaMusica = new Musica(titulo, duracao, genero, faixa, null);
+            musicas[numMusicas] = novaMusica;
+            numMusicas++;
+            return;
+        }
         Album albumEscolhido = albuns[selecao];
         Musica novaMusica = new Musica(titulo, duracao, genero, faixa, albumEscolhido);
         albumEscolhido.adicionarMusica(novaMusica);
@@ -249,6 +267,37 @@ public class Main {
             Artista artista = album.getArtista();
             System.out.println("    Artista: " + artista.getNome());
         }
+    }
+    public static void buscarMusicasPorNome(){
+        System.out.println("Digite o nome da música que deseja buscar:");
+        String nome = scanner.nextLine();
+        boolean encontrou = false;
+        for(int i = 0; i < numMusicas; i++){
+            if(musicas[i].getTitulo().toLowerCase().startsWith(nome.toLowerCase())){ // colocar p/ lowercase antes de buscar p/ garantir que vai ser igual
+                System.out.println("Música encontrada: " + musicas[i].getTitulo());
+                Album album = musicas[i].getAlbum();
+                System.out.println("    Álbum: " + album.getTitulo());
+                Artista artista = album.getArtista();
+                System.out.println("    Artista: " + artista.getNome());
+                encontrou = true;
+            }
+        }
+        if(!encontrou){
+            System.out.println("Nenhuma música encontrada com esse nome.");
+        }
+    }
+    public static void adicionarAlbumAMusica(){
+        System.out.println("Selecione a música que deseja adicionar o álbum, pelo id: ");
+        listarMusicas();
+        int selecao = scanner.nextInt();
+        scanner.nextLine();
+        Musica musicaEscolhida = musicas[selecao];
+        System.out.println("Selecione o álbum que deseja adicionar à música, pelo id: ");
+        listarAlbuns();
+        selecao = scanner.nextInt();
+        scanner.nextLine();
+        Album albumEscolhido = albuns[selecao];
+        musicaEscolhida.setAlbum(albumEscolhido);
     }
 }
     

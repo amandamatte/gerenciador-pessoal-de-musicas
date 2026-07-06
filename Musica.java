@@ -26,12 +26,9 @@ public class Musica {
     public Album getAlbum() {
         return album;
     }
-    public boolean equals(Musica m) {
-        if(this.titulo.equals(m.getTitulo()) && this.duracao == (m.getDuracao()) && this.genero.equals(m.getGenero()) && this.faixa == (m.getFaixa())) {
-            return true;
-        }
-        else {
-            return false;
-        }
+    public Album setAlbum(Album album) {
+        this.album = album;
+        return album;
     }
+
 }
