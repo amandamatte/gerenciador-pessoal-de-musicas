@@ -19,7 +19,7 @@ java Main
  
 *![Diagrama de Classes](diagrama.jpeg)*
  
-O sistema tem quatro classes: `Artista`, `Album`, `Musica` e `Playlist`. A relação entre as três primeiras é de composição — um artista lança álbuns, e cada álbum contém suas músicas. Já a `Playlist` tem uma relação de agregação com `Musica`, ou seja, a música existe independentemente da playlist.
+O sistema tem quatro classes: `Artista`, `Album`, `Musica` e `Playlist`. A relação entre as três primeiras é de composição: um artista lança álbuns, e cada álbum contém suas músicas. Já a `Playlist` tem uma relação de agregação com `Musica`, ou seja, a música existe independentemente da playlist.
  
 ## Fontes de consulta
  
@@ -40,6 +40,6 @@ Fizemos o projeto juntas do início ao fim, sem divisão formal de partes.
  
 ## Lições aprendidas
  
-O projeto nos ajudou a colocar em prática o que vimos em aula — classes, arrays, métodos e relacionamentos entre objetos — aplicados a um tema que gostamos. Trabalhar com um sistema real fez tudo fazer mais sentido.
+O projeto nos ajudou a colocar em prática o que vimos em aula, como por exemplo: classes, arrays, métodos e relacionamentos entre objetos, aplicados a um tema que gostamos. Trabalhar com um sistema real fez tudo fazer mais sentido.
 
 Aproveite! 🎵
