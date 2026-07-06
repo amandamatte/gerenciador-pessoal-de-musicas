@@ -25,7 +25,7 @@ public class Main {
             System.out.println("Pressione 7 para listar os álbuns");
             System.out.println("Pressione 8 para listar as músicas");
             System.out.println("Pressione 9 para listar as playlists");
-            System.out.println("Presssione 10 para buscar musicas por nome");
+            System.out.println("Pressione 10 para buscar musicas por nome");
             System.out.println("Pressione 11 para editar o álbum de uma música");
             System.out.println("Pressione -1 para sair");
             int opcao = scanner.nextInt();
@@ -82,7 +82,7 @@ public class Main {
                 }
                 case -1: {
                     System.out.println("Saindo...");
-                    break;
+                    return;
                 }
                 default : System.out.println("Comando inválido!");
             }
@@ -106,7 +106,7 @@ public class Main {
         artistas[numArtistas] = artista;
     }
     public static void adicionarAlbum() {
-        System.err.println("Qual o título do Álbum?");
+        System.out.println("Qual o título do Álbum?");
         String nome = scanner.nextLine();
         System.out.println("Qual foi o ano de lançamento?");
         int anoLancamento = scanner.nextInt();
